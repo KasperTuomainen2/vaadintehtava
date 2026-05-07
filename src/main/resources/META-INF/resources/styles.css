@@ -1,4 +1,38 @@
 /* Add your styles here */
+html, body {
+    font-family: 'Segoe UI', sans-serif !important;
+}
+
+vaadin-button {
+    border-radius: 4px;
+}
+
+body vaadin-button[theme~="primary"] {
+    background-color: #db6e00 !important;
+    color: black !important;
+    border-radius: 4px !important;
+}
+
+vaadin-button[theme~="error"] {
+    background-color: #ff0000 !important;
+    color: black !important;
+    border-radius: 4px !important;
+}
+
+vaadin-button[theme~="tertiary"] {
+    background-color: #8f8f8f !important;
+    color: black !important;
+    border-radius: 4px !important;
+}
+
+vaadin-text-field::part(input-field),
+vaadin-text-area::part(input-field),
+vaadin-number-field::part(input-field),
+vaadin-date-picker::part(input-field) {
+    background-color: white !important;
+    border: 1px solid gray !important;
+    border-radius: 4px !important;
+}
 
 .app-logo {
     border-radius: min(40%, var(--vaadin-radius-m));
@@ -13,17 +47,4 @@
 .app-footer {
     color: var(--vaadin-text-color-secondary);
     font-size: var(--aura-font-size-s);
-}
-
-/* TODO: This is only for demo purposes. You can delete it. */
-vaadin-side-nav:has(vaadin-side-nav-item:only-child)::after {
-    display: block;
-    content: "More menu items will appear here when you add more views.";
-    font-size: var(--aura-font-size-s);
-    color: var(--vaadin-text-color-secondary);
-    box-sizing: border-box;
-    padding: 1em;
-    max-width: 14em;
-    min-width: 100%;
-    white-space: normal;
 }
