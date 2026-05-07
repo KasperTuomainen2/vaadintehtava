@@ -7,10 +7,22 @@ vaadin-button {
     border-radius: 4px;
 }
 
-body vaadin-button[theme~="primary"] {
+vaadin-button[theme~="primary"] {
     background-color: #db6e00 !important;
     color: black !important;
     border-radius: 4px !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+vaadin-button[theme~="primary"]:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1);
+}
+
+vaadin-button[theme~="primary"]:focus {
+    outline: 2px solid #db6e00 !important;
+    outline-offset: 2px;
+    box-shadow: 0 0 10px rgba(219, 110, 0, 0.5);
 }
 
 vaadin-button[theme~="error"] {
@@ -24,6 +36,7 @@ vaadin-button[theme~="tertiary"] {
     color: black !important;
     border-radius: 4px !important;
 }
+
 
 vaadin-text-field::part(input-field),
 vaadin-text-area::part(input-field),

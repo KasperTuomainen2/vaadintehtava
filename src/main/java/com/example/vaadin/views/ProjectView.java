@@ -18,8 +18,8 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
 
-@Route(value = "projects", layout = MainLayout.class)
 @PageTitle("Projektit")
+@Route(value = "projects", layout = MainLayout.class)
 public class ProjectView extends VerticalLayout {
     private final ProjectRepository repository;
     Grid<Project> grid = new Grid<>(Project.class);

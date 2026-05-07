@@ -10,6 +10,9 @@ import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
 import com.vaadin.flow.component.sidenav.SideNavItem;
+import com.vaadin.flow.router.AfterNavigationEvent;
+import com.vaadin.flow.router.AfterNavigationObserver;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.theme.lumo.Lumo;
 import com.vaadin.flow.theme.lumo.LumoUtility;
@@ -17,7 +20,7 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 
 @StyleSheet("styles.css")
 @StyleSheet(Lumo.UTILITY_STYLESHEET)
-public class MainLayout extends AppLayout {
+public class MainLayout extends AppLayout implements AfterNavigationObserver {
 
     private H2 viewTitle;
 
@@ -32,7 +35,7 @@ public class MainLayout extends AppLayout {
 
     private void addHeaderContent() {
         DrawerToggle toggle = new DrawerToggle();
-        viewTitle = new H2();
+        viewTitle = new H2("Otsikko");
         viewTitle.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
 
         Span userIdentifier = new Span("Käyttäjä: Admin");
@@ -49,7 +52,7 @@ public class MainLayout extends AppLayout {
     }
 
     private void addDrawerContent() {
-        H1 appName = new H1("Projektin hallinta");
+        H1 appName = new H1("ProjectManagement App");
         appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Padding.MEDIUM);
 
         SideNav nav = new SideNav();
@@ -88,5 +91,17 @@ public class MainLayout extends AppLayout {
 
         footer.add(copyright, link);
         getElement().appendChild(footer.getElement());
+    }
+
+    @Override
+    public void afterNavigation(AfterNavigationEvent event) {
+        viewTitle.setText(getCurrentPageTitle());
+    }
+
+    private String getCurrentPageTitle() {
+        if (getContent() == null) return "";
+
+        PageTitle title = getContent().getClass().getAnnotation(PageTitle.class);
+        return title == null ? "" : title.value();
     }
 }
