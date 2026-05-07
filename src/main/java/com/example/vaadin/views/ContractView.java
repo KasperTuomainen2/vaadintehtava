@@ -73,19 +73,15 @@ public class ContractView extends VerticalLayout {
         Employee employee = contract.getEmployee();
 
         if (employee != null) {
-            // TARKISTUS: Jos työntekijällä on jo eri sopimus, poistetaan se ensin
-            // tai varmistetaan, että liitetään tämä uusi oikein.
             if (employee.getContract() != null && !employee.getContract().equals(contract)) {
-                // Valinnainen: poista vanha sopimus repositoryn kautta tai
-                // estä tallennus virheilmoituksella (Notification).
+
             }
 
             employee.setContract(contract);
-            contract.setEmployee(employee); // Varmistetaan molemmat suunnat
+            contract.setEmployee(employee);
         }
 
         repository.save(contract);
-        // Huom: Jos Employee on "owner", tallenna se myös
         if (employee != null) {
             employeeRepository.save(employee);
         }

@@ -94,7 +94,6 @@ public class ProjectView extends VerticalLayout {
         grid.setItems(repository.findAll());
     }
 
-    // Tämä yhdistää Gridin ja Formin asettelun
     private Component getContent() {
         HorizontalLayout content = new HorizontalLayout(grid, form);
         content.setFlexGrow(2, grid);

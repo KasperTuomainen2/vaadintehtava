@@ -61,7 +61,6 @@ public class DepartmentForm extends FormLayout {
         binder.setBean(department);
     }
 
-    // Tapahtumatyypit (Save, Delete, Close) – voit kopioida nää EmployeeFormista ja vaihtaa tyypin Departmentiksi
     public static abstract class DepartmentFormEvent extends ComponentEvent<DepartmentForm> {
         private Department department;
         protected DepartmentFormEvent(DepartmentForm source, Department department) {

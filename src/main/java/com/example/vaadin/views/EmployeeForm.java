@@ -36,7 +36,6 @@ public class EmployeeForm extends FormLayout {
 
     MultiSelectComboBox<Project> projects = new MultiSelectComboBox<>("Projektit");
 
-    // Sopimuksen tiedot (Räätälöidään tässä samalla)
     DatePicker alkamisPaiva = new DatePicker("Sopimus alkaa");
     NumberField palkka = new NumberField("Palkka (€)");
     TextField sopimustyyppi = new TextField("Sopimustyyppi");
@@ -111,7 +110,6 @@ public class EmployeeForm extends FormLayout {
         save.addClickShortcut(Key.ENTER);
         close.addClickShortcut(Key.ESCAPE);
 
-        // Napien toiminnallisuus (lähetetään tapahtumia, joita EmployeeView kuuntelee)
         save.addClickListener(event -> validateAndSave());
         delete.addClickListener(event -> fireEvent(new DeleteEvent(this, binder.getBean())));
         close.addClickListener(event -> fireEvent(new CloseEvent(this)));
@@ -132,7 +130,6 @@ public class EmployeeForm extends FormLayout {
         }
     }
 
-    // --- Tapahtumien käsittely (Events) ---
     public static abstract class EmployeeFormEvent extends ComponentEvent<EmployeeForm> {
         private Employee employee;
         protected EmployeeFormEvent(EmployeeForm source, Employee employee) {

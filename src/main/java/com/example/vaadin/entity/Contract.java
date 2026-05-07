@@ -18,8 +18,7 @@ public class Contract {
     @Min(value = 0, message = "Palkka ei voi olla negatiivinen")
     private Double palkka;
 
-    // Uudet kentät
-    private String sopimustyyppi; // esim. Vakituinen, Määräaikainen
+    private String sopimustyyppi;
 
     @Min(value = 0)
     @Max(value = 40)
@@ -28,7 +27,7 @@ public class Contract {
     @Min(value = 0)
     private Integer koeaikaKuukausina;
 
-    // GETTERIT JA SETTERIT
+
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -51,7 +50,7 @@ public class Contract {
 //    @OneToOne(mappedBy = "contract")
 
     @OneToOne
-    @JoinColumn(name = "employee_id") // Tämä luo tietokantaan sarakkeen työntekijän ID:lle
+    @JoinColumn(name = "employee_id")
     private Employee employee;
 
     public Employee getEmployee() { return employee; }
