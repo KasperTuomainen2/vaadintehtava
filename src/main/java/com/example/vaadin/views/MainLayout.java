@@ -17,7 +17,9 @@ import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.theme.lumo.Lumo;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import jakarta.annotation.security.PermitAll;
 
+@PermitAll
 @StyleSheet("styles.css")
 @StyleSheet(Lumo.UTILITY_STYLESHEET)
 public class MainLayout extends AppLayout implements AfterNavigationObserver {

@@ -16,8 +16,9 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
+import jakarta.annotation.security.PermitAll;
 
-
+@PermitAll
 @PageTitle("Projektit")
 @Route(value = "projects", layout = MainLayout.class)
 public class ProjectView extends VerticalLayout {
